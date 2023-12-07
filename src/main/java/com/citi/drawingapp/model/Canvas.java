@@ -93,4 +93,9 @@ public class Canvas extends Shape {
         }
         OutputWriter.printToConsole(this.data);
     }
+
+    @Override
+    public String toString() {
+        return OutputWriter.printToString(this.data);
+    }
 }

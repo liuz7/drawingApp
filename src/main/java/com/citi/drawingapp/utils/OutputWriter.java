@@ -16,4 +16,21 @@ public class OutputWriter {
             System.out.println();
         }
     }
+
+    public static String printToString(char[][] data) {
+        StringBuffer sb = new StringBuffer();
+        int m = data.length;
+        int n = data[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (data[i][j] == 0) { // if char is null, then print space instead
+                    sb.append(' ');
+                } else {
+                    sb.append(data[i][j]);
+                }
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
