@@ -3,9 +3,11 @@
 ### Usage
 Since this is Maven base application, before run this application, please correctly setup 
 the maven settings file and repo urls. JAVA SDK version should be above version 15.
-* Run `mvn package` to build the jar in CLI(Need to comment out some maven plugins in pom.xml).
-* Run `java -jar target/drawingApp-0.0.1-SNAPSHOT.jar` to run this app, or import into IDE to run it if there is any issue with jar.
-* Run `mvn test` to get the jacoco code coverage. The report is `target/site/jacoco/index.html`.
+* Use IDE to import the project, and then run the main class.
+* How to package as java jar to run.
+  - Run `mvn package` to build the jar in CLI(Need to comment out some maven plugins in pom.xml).
+  - Run `java -jar target/drawingApp-0.0.1-SNAPSHOT.jar` to run this app, or import into IDE to run it if there is any issue with jar.
+  - Run `mvn test` to get the jacoco code coverage. The report is `target/site/jacoco/index.html`.
 * When prompts, please enter `C 20 4` to draw the Canvas.
 * Enter `L 1 2 6 2` to draw the horizontal line.
 * Enter `L 6 3 6 4` to draw the vertical line.

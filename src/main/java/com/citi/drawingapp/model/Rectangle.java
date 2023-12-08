@@ -28,7 +28,7 @@ public class Rectangle implements ShapeInterface {
         int x2 = p2.getCoordinateX();
         int y2 = p2.getCoordinateY();
         if (this.canvas == null || this.canvas.getData() == null) {
-            throw new NoCanvasException("Canvas is null");
+            throw new NoCanvasException("Canvas is not found, please draw Canvas firstly");
         }
         char[][] data = this.canvas.getData();
         int m = data.length;

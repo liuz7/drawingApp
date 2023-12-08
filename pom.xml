@@ -81,7 +81,6 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        &lt;!&ndash; 触发的maven 命令 &ndash;&gt;
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>

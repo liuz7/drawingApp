@@ -55,12 +55,14 @@ public class CommandParser {
                     rectangle.draw(p1, p2);
                 } else if (arguments[0].equalsIgnoreCase("Q")) {
                     scanner.close();
+                    System.out.println("App quited");
                     return;
                 } else {
                     throw new NotSupportedException("This shape drawing command is not support");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                String errorMessage = e.getMessage() == null ? "Some error found" : e.getMessage();
+                System.out.println(errorMessage);
             }
         }
     }
