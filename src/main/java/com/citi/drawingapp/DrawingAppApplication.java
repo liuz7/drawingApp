@@ -25,24 +25,17 @@ public class DrawingAppApplication {
                     canvas = new Canvas();
                     canvas.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]));
                 } else if (arguments[0].equals(L.name()) && arguments.length == 5) {
-                    if (canvas == null) {
-                        System.out.println("Please draw canvas firstly");
-                    } else {
-                        Line line = new Line();
-                        line.setCanvas(canvas);
-                        line.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
-                                Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
-                    }
+                    Line line = new Line();
+                    line.setCanvas(canvas);
+                    line.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
+                            Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
                 } else if (arguments[0].equals(R.name()) && arguments.length == 5) {
-                    if (canvas == null) {
-                        System.out.println("Please draw canvas firstly");
-                    } else {
-                        Rectangle rectangle = new Rectangle();
-                        rectangle.setCanvas(canvas);
-                        rectangle.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
-                                Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
-                    }
+                    Rectangle rectangle = new Rectangle();
+                    rectangle.setCanvas(canvas);
+                    rectangle.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
+                            Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
                 } else if (arguments[0].equalsIgnoreCase("Q")) {
+                    scanner.close();
                     return;
                 } else {
                     throw new NotSupportedException("This shape drawing operation is not support");

@@ -36,6 +36,9 @@ public class Canvas implements CanvasInterface {
      */
     @Override
     public void draw(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Width and Height should be greater than zero");
+        }
         this.width = width + 2;
         this.height = height + 2;
         this.data = new char[this.height][this.width];
