@@ -1,21 +1,19 @@
 package com.citi.drawingapp;
 
-import com.citi.drawingapp.api.factory.ShapeFactory;
-import com.citi.drawingapp.model.Shape;
+import com.citi.drawingapp.model.Canvas;
+import com.citi.drawingapp.model.Line;
+import com.citi.drawingapp.model.Rectangle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.citi.drawingapp.enums.ShapeType.C;
-
 class DrawingAppApplicationTests {
 
-    private static Shape canvas = null;
+    private static Canvas canvas = null;
 
     @BeforeAll
     public static void init() {
-        ShapeFactory shapeFactory = new ShapeFactory();
-        canvas = shapeFactory.createShape(C);
+        canvas = new Canvas();
     }
 
     @Test
@@ -27,7 +25,7 @@ class DrawingAppApplicationTests {
                 |                    |
                 |                    |
                 ----------------------""";
-        canvas.drawCanvas(20, 4);
+        canvas.draw(20, 4);
         Assertions.assertNotNull(canvas);
         Assertions.assertEquals(expected, canvas.toString());
     }
@@ -41,8 +39,10 @@ class DrawingAppApplicationTests {
                 |                    |
                 |                    |
                 ----------------------""";
-        canvas.drawCanvas(20, 4);
-        canvas.drawLine(1, 2, 6, 2);
+        canvas.draw(20, 4);
+        Line line = new Line();
+        line.setCanvas(canvas);
+        line.draw(1, 2, 6, 2);
         Assertions.assertNotNull(canvas);
         Assertions.assertEquals(expected, canvas.toString());
     }
@@ -56,9 +56,11 @@ class DrawingAppApplicationTests {
                 |     X              |
                 |     X              |
                 ----------------------""";
-        canvas.drawCanvas(20, 4);
-        canvas.drawLine(1, 2, 6, 2);
-        canvas.drawLine(6, 3, 6, 4);
+        canvas.draw(20, 4);
+        Line line = new Line();
+        line.setCanvas(canvas);
+        line.draw(1, 2, 6, 2);
+        line.draw(6, 3, 6, 4);
         Assertions.assertNotNull(canvas);
         Assertions.assertEquals(expected, canvas.toString());
     }
@@ -72,10 +74,14 @@ class DrawingAppApplicationTests {
                 |     X         XXXXX|
                 |     X              |
                 ----------------------""";
-        canvas.drawCanvas(20, 4);
-        canvas.drawLine(1, 2, 6, 2);
-        canvas.drawLine(6, 3, 6, 4);
-        canvas.drawRectangle(16, 1, 20, 3);
+        canvas.draw(20, 4);
+        Line line = new Line();
+        line.setCanvas(canvas);
+        line.draw(1, 2, 6, 2);
+        line.draw(6, 3, 6, 4);
+        Rectangle rectangle = new Rectangle();
+        rectangle.setCanvas(canvas);
+        rectangle.draw(16, 1, 20, 3);
         Assertions.assertNotNull(canvas);
         Assertions.assertEquals(expected, canvas.toString());
     }
