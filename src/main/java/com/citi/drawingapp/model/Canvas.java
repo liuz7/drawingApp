@@ -4,9 +4,8 @@ import com.citi.drawingapp.exception.NotSupportedException;
 import com.citi.drawingapp.exception.OutOfCanvasException;
 import com.citi.drawingapp.utils.OutputWriter;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Data
 public class Canvas extends Shape {
 

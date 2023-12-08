@@ -3,14 +3,12 @@ package com.citi.drawingapp;
 import com.citi.drawingapp.api.factory.ShapeFactory;
 import com.citi.drawingapp.exception.NotSupportedException;
 import com.citi.drawingapp.model.Shape;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import static com.citi.drawingapp.enums.ShapeType.*;
 
-@Slf4j
 public class DrawingAppApplication {
 
 
