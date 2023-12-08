@@ -20,8 +20,64 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawCanvas() {
+        String expected = """
+                ----------------------
+                |                    |
+                |                    |
+                |                    |
+                |                    |
+                ----------------------""";
         canvas.drawCanvas(20, 4);
-        Assertions.assertNotNull(canvas.toString());
+        Assertions.assertNotNull(canvas);
+        Assertions.assertEquals(expected, canvas.toString());
+    }
+
+    @Test
+    void testDrawHorizontalLine() {
+        String expected = """
+                ----------------------
+                |                    |
+                |XXXXXX              |
+                |                    |
+                |                    |
+                ----------------------""";
+        canvas.drawCanvas(20, 4);
+        canvas.drawLine(1, 2, 6, 2);
+        Assertions.assertNotNull(canvas);
+        Assertions.assertEquals(expected, canvas.toString());
+    }
+
+    @Test
+    void testDrawVerticalLine() {
+        String expected = """
+                ----------------------
+                |                    |
+                |XXXXXX              |
+                |     X              |
+                |     X              |
+                ----------------------""";
+        canvas.drawCanvas(20, 4);
+        canvas.drawLine(1, 2, 6, 2);
+        canvas.drawLine(6, 3, 6, 4);
+        Assertions.assertNotNull(canvas);
+        Assertions.assertEquals(expected, canvas.toString());
+    }
+
+    @Test
+    void testDrawRectangle() {
+        String expected = """
+                ----------------------
+                |               XXXXX|
+                |XXXXXX         X   X|
+                |     X         XXXXX|
+                |     X              |
+                ----------------------""";
+        canvas.drawCanvas(20, 4);
+        canvas.drawLine(1, 2, 6, 2);
+        canvas.drawLine(6, 3, 6, 4);
+        canvas.drawRectangle(16, 1, 20, 3);
+        Assertions.assertNotNull(canvas);
+        Assertions.assertEquals(expected, canvas.toString());
     }
 
 }

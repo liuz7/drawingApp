@@ -40,6 +40,8 @@ public class DrawingAppApplication {
                         canvas.drawRectangle(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
                                 Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
                     }
+                } else if (arguments[0].equalsIgnoreCase("Q")) {
+                    return;
                 } else {
                     throw new NotSupportedException("This shape drawing operation is not support");
                 }

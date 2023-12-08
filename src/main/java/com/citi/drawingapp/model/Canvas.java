@@ -73,7 +73,7 @@ public class Canvas extends Shape {
 
     @Override
     public void drawRectangle(int x1, int y1, int x2, int y2) {
-        //draw the top and buttom line
+        //draw the top and bottom line
         for (int i = x1; i <= x2; i++) {
             try {
                 this.data[y1][i] = SHAPE_SEP;

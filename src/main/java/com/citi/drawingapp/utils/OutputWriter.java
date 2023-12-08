@@ -13,7 +13,9 @@ public class OutputWriter {
                     System.out.print(data[i][j]);
                 }
             }
-            System.out.println();
+            if (i < m - 1) {
+                System.out.println();
+            }
         }
     }
 
@@ -29,7 +31,9 @@ public class OutputWriter {
                     sb.append(data[i][j]);
                 }
             }
-            sb.append("\n");
+            if (i < m - 1) {
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }
