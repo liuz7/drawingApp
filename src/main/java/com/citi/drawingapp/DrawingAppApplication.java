@@ -4,6 +4,7 @@ import com.citi.drawingapp.exception.NotSupportedException;
 import com.citi.drawingapp.model.Canvas;
 import com.citi.drawingapp.model.Line;
 import com.citi.drawingapp.model.Rectangle;
+import com.citi.drawingapp.model.ShapeArgument;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
@@ -23,22 +24,40 @@ public class DrawingAppApplication {
                 String[] arguments = input.trim().split(" ");
                 if (arguments[0].equals(C.name()) && arguments.length == 3) {
                     canvas = new Canvas();
-                    canvas.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]));
+                    ShapeArgument p = ShapeArgument.builder()
+                            .coordinateX(Integer.valueOf(arguments[1]))
+                            .coordinateY(Integer.valueOf(arguments[2]))
+                            .build();
+                    canvas.draw(p);
                 } else if (arguments[0].equals(L.name()) && arguments.length == 5) {
                     Line line = new Line();
                     line.setCanvas(canvas);
-                    line.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
-                            Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
+                    ShapeArgument p1 = ShapeArgument.builder()
+                            .coordinateX(Integer.valueOf(arguments[1]))
+                            .coordinateY(Integer.valueOf(arguments[2]))
+                            .build();
+                    ShapeArgument p2 = ShapeArgument.builder()
+                            .coordinateX(Integer.valueOf(arguments[3]))
+                            .coordinateY(Integer.valueOf(arguments[4]))
+                            .build();
+                    line.draw(p1, p2);
                 } else if (arguments[0].equals(R.name()) && arguments.length == 5) {
                     Rectangle rectangle = new Rectangle();
                     rectangle.setCanvas(canvas);
-                    rectangle.draw(Integer.valueOf(arguments[1]), Integer.valueOf(arguments[2]),
-                            Integer.valueOf(arguments[3]), Integer.valueOf(arguments[4]));
+                    ShapeArgument p1 = ShapeArgument.builder()
+                            .coordinateX(Integer.valueOf(arguments[1]))
+                            .coordinateY(Integer.valueOf(arguments[2]))
+                            .build();
+                    ShapeArgument p2 = ShapeArgument.builder()
+                            .coordinateX(Integer.valueOf(arguments[3]))
+                            .coordinateY(Integer.valueOf(arguments[4]))
+                            .build();
+                    rectangle.draw(p1, p2);
                 } else if (arguments[0].equalsIgnoreCase("Q")) {
                     scanner.close();
                     return;
                 } else {
-                    throw new NotSupportedException("This shape drawing operation is not support");
+                    throw new NotSupportedException("This shape drawing command is not support");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

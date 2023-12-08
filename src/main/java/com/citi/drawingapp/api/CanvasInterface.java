@@ -1,7 +1,9 @@
 package com.citi.drawingapp.api;
 
+import com.citi.drawingapp.model.ShapeArgument;
+
 public interface CanvasInterface {
 
-    void draw(int width, int height);
+    void draw(ShapeArgument point);
 
 }

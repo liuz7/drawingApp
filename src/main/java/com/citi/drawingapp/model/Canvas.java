@@ -20,22 +20,17 @@ public class Canvas implements CanvasInterface {
     public Canvas() {
     }
 
-    public Canvas(int width, int height) {
-        this.width = width;
-        this.height = height;
-        this.data = new char[height][width];
-    }
-
     /**
      * Draw the canvas to console
      *
-     * @param width  Integer value for canvas width
-     * @param height Integer value for canvas height
+     * @param p ShapeArgument object which contains Integer value for canvas width and Integer value for canvas height
      * @return No return value.
      * @throws Any exception
      */
     @Override
-    public void draw(int width, int height) {
+    public void draw(ShapeArgument p) {
+        int width = p.getCoordinateX();
+        int height = p.getCoordinateY();
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and Height should be greater than zero");
         }

@@ -16,13 +16,17 @@ public class Rectangle implements ShapeInterface {
     /**
      * Draw the Rectangle in canvas to console
      *
-     * @param x1,y1 Integer value for Rectangle upper left point
-     * @param x2,y2 Integer value for Rectangle bottom right point
+     * @param p1 ShapeArgument object Integer value for Rectangle upper left point
+     * @param p2 ShapeArgument object Integer value for Rectangle bottom right point
      * @return No return value.
      * @throws Any exception
      */
     @Override
-    public void draw(int x1, int y1, int x2, int y2) {
+    public void draw(ShapeArgument p1, ShapeArgument p2) {
+        int x1 = p1.getCoordinateX();
+        int y1 = p1.getCoordinateY();
+        int x2 = p2.getCoordinateX();
+        int y2 = p2.getCoordinateY();
         if (this.canvas == null || this.canvas.getData() == null) {
             throw new NoCanvasException("Canvas is null");
         }
