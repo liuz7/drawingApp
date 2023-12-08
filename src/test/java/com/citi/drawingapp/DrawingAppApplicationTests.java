@@ -76,7 +76,6 @@ class DrawingAppApplicationTests {
     @Test
     void testDrawNoCanvasException() {
         Line line = new Line();
-        line.setCanvas(canvas);
         Assertions.assertThrows(NoCanvasException.class, () -> line.draw(1, 2, 6, 2));
     }
 
