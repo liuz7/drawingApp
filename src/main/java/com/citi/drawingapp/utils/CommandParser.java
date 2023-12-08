@@ -17,6 +17,7 @@ public class CommandParser {
         Canvas canvas = null;
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
         while (true) {
+            System.out.println();
             System.out.println("Please enter draw arguments:");
             String input = scanner.nextLine();
             try {
