@@ -1,6 +1,7 @@
 package com.citi.drawingapp;
 
 import com.citi.drawingapp.exception.NoCanvasException;
+import com.citi.drawingapp.exception.NotSupportedException;
 import com.citi.drawingapp.exception.OutOfCanvasException;
 import com.citi.drawingapp.model.Canvas;
 import com.citi.drawingapp.model.Line;
@@ -93,8 +94,8 @@ class DrawingAppApplicationTests {
         Line line = new Line();
         line.setCanvas(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(3).build();
-        ShapeArgument p2 = ShapeArgument.builder().coordinateX(21).coordinateY(2).build();
-        Assertions.assertThrows(OutOfCanvasException.class, () -> line.draw(p1, p2));
+        ShapeArgument p2 = ShapeArgument.builder().coordinateX(20).coordinateY(2).build();
+        Assertions.assertThrows(NotSupportedException.class, () -> line.draw(p1, p2));
     }
 
     @Test
