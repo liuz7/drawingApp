@@ -2,7 +2,12 @@ package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
 import com.citi.drawingapp.utils.OutputWriter;
+import com.citi.drawingapp.validation.CheckArgumentSize;
+import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
+
+import static com.citi.drawingapp.enums.ShapeType.C;
+import static com.citi.drawingapp.enums.ShapeType.R;
 
 
 @Data
@@ -30,14 +35,9 @@ public class Canvas implements ShapeInterface {
      */
     @Override
     public void draw(ShapeArgument... plist) {
-        if (plist == null || plist.length != 1) {
-            throw new IllegalArgumentException("Argument size is incorrect");
-        }
+        new CheckArgumentSize().linkWith(new CheckCanvas()).validate(C, null, plist);
         int width = plist[0].getWidth();
         int height = plist[0].getHeight();
-        if (width <= 0 || height <= 0) {
-            throw new IllegalArgumentException("Width and Height should be greater than zero");
-        }
         this.width = width + 2;
         this.height = height + 2;
         this.data = new char[this.height][this.width];
