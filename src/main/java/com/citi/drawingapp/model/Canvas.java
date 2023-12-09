@@ -7,7 +7,6 @@ import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
 
 import static com.citi.drawingapp.enums.ShapeType.C;
-import static com.citi.drawingapp.enums.ShapeType.R;
 
 
 @Data

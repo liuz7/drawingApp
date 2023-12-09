@@ -1,14 +1,11 @@
 package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
-import com.citi.drawingapp.exception.NoCanvasException;
-import com.citi.drawingapp.exception.OutOfCanvasException;
 import com.citi.drawingapp.utils.OutputWriter;
 import com.citi.drawingapp.validation.CheckArgumentSize;
 import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
 
-import static com.citi.drawingapp.enums.ShapeType.L;
 import static com.citi.drawingapp.enums.ShapeType.R;
 
 @Data

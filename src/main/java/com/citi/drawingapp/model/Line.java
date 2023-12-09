@@ -1,10 +1,7 @@
 package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
-import com.citi.drawingapp.enums.ShapeType;
-import com.citi.drawingapp.exception.NoCanvasException;
 import com.citi.drawingapp.exception.NotSupportedException;
-import com.citi.drawingapp.exception.OutOfCanvasException;
 import com.citi.drawingapp.utils.OutputWriter;
 import com.citi.drawingapp.validation.CheckArgumentSize;
 import com.citi.drawingapp.validation.CheckCanvas;
