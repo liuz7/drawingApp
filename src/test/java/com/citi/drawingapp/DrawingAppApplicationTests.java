@@ -52,8 +52,7 @@ class DrawingAppApplicationTests {
                 ----------------------""";
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(2).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(6).coordinateY(2).build();
         line.draw(p1, p2);
@@ -65,8 +64,7 @@ class DrawingAppApplicationTests {
     void testDrawHorizontalLineOutOfCanvasException() {
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(2).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(21).coordinateY(2).build();
         Assertions.assertThrows(OutOfCanvasException.class, () -> line.draw(p1, p2));
@@ -91,8 +89,7 @@ class DrawingAppApplicationTests {
     void testDrawLineNotSupportedException() {
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(3).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(20).coordinateY(2).build();
         Assertions.assertThrows(NotSupportedException.class, () -> line.draw(p1, p2));
@@ -125,8 +122,7 @@ class DrawingAppApplicationTests {
                 ----------------------""";
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(2).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(6).coordinateY(2).build();
         line.draw(p1, p2);
@@ -143,8 +139,7 @@ class DrawingAppApplicationTests {
     void testDrawVerticalLineOutOfCanvasException() {
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(6).coordinateY(3).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(6).coordinateY(5).build();
         Assertions.assertThrows(OutOfCanvasException.class, () -> line.draw(p1, p2));
@@ -176,8 +171,7 @@ class DrawingAppApplicationTests {
                 ----------------------""";
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(2).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(6).coordinateY(2).build();
         line.draw(p1, p2);
@@ -186,8 +180,7 @@ class DrawingAppApplicationTests {
         p2.setCoordinateX(6);
         p2.setCoordinateY(4);
         line.draw(p1, p2);
-        Rectangle rectangle = new Rectangle();
-        rectangle.setCanvas(canvas);
+        Rectangle rectangle = new Rectangle(canvas);
         p1.setCoordinateX(16);
         p1.setCoordinateY(1);
         p2.setCoordinateX(20);
@@ -201,8 +194,7 @@ class DrawingAppApplicationTests {
     void testDrawRectangleOutOfCanvasException() {
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Rectangle rectangle = new Rectangle();
-        rectangle.setCanvas(canvas);
+        Rectangle rectangle = new Rectangle(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(16).coordinateY(1).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(20).coordinateY(5).build();
         Assertions.assertThrows(OutOfCanvasException.class, () -> rectangle.draw(p1, p2));
@@ -234,8 +226,7 @@ class DrawingAppApplicationTests {
                 ----------------------""";
         ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
-        Line line = new Line();
-        line.setCanvas(canvas);
+        Line line = new Line(canvas);
         ShapeArgument p1 = ShapeArgument.builder().coordinateX(1).coordinateY(2).build();
         ShapeArgument p2 = ShapeArgument.builder().coordinateX(6).coordinateY(2).build();
         line.draw(p1, p2);
@@ -244,8 +235,7 @@ class DrawingAppApplicationTests {
         p2.setCoordinateX(5);
         p2.setCoordinateY(4);
         line.draw(p1, p2);
-        Rectangle rectangle = new Rectangle();
-        rectangle.setCanvas(canvas);
+        Rectangle rectangle = new Rectangle(canvas);
         p1.setCoordinateX(16);
         p1.setCoordinateY(1);
         p2.setCoordinateX(20);

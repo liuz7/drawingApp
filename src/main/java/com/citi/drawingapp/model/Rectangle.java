@@ -15,6 +15,13 @@ public class Rectangle implements ShapeInterface {
 
     private final static char SHAPE_SEP = 'X';
 
+    public Rectangle(Canvas canvas) {
+        this.canvas = canvas;
+    }
+
+    public Rectangle() {
+    }
+
     /**
      * Draw the Rectangle in canvas to console
      *

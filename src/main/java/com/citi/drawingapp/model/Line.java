@@ -16,6 +16,13 @@ public class Line implements ShapeInterface {
 
     private final static char SHAPE_SEP = 'X';
 
+    public Line(Canvas canvas) {
+        this.canvas = canvas;
+    }
+
+    public Line() {
+    }
+
     /**
      * Draw the Line in canvas to console
      *

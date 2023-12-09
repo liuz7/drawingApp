@@ -30,8 +30,7 @@ public class CommandParser {
                             .build();
                     canvas.draw(p);
                 } else if (arguments[0].equals(L.name()) && arguments.length == 5) {
-                    Line line = new Line();
-                    line.setCanvas(canvas);
+                    Line line = new Line(canvas);
                     ShapeArgument p1 = ShapeArgument.builder()
                             .coordinateX(Integer.valueOf(arguments[1]))
                             .coordinateY(Integer.valueOf(arguments[2]))
@@ -42,8 +41,7 @@ public class CommandParser {
                             .build();
                     line.draw(p1, p2);
                 } else if (arguments[0].equals(R.name()) && arguments.length == 5) {
-                    Rectangle rectangle = new Rectangle();
-                    rectangle.setCanvas(canvas);
+                    Rectangle rectangle = new Rectangle(canvas);
                     ShapeArgument p1 = ShapeArgument.builder()
                             .coordinateX(Integer.valueOf(arguments[1]))
                             .coordinateY(Integer.valueOf(arguments[2]))
