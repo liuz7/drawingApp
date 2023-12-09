@@ -25,8 +25,8 @@ public class CommandParser {
                 if (arguments[0].equals(C.name()) && arguments.length == 3) {
                     canvas = new Canvas();
                     ShapeArgument p = ShapeArgument.builder()
-                            .coordinateX(Integer.valueOf(arguments[1]))
-                            .coordinateY(Integer.valueOf(arguments[2]))
+                            .width(Integer.valueOf(arguments[1]))
+                            .height(Integer.valueOf(arguments[2]))
                             .build();
                     canvas.draw(p);
                 } else if (arguments[0].equals(L.name()) && arguments.length == 5) {

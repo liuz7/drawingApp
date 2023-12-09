@@ -28,7 +28,7 @@ class DrawingAppApplicationTests {
                 |                    |
                 |                    |
                 ----------------------""";
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Assertions.assertNotNull(canvas);
         Assertions.assertEquals(expected, canvas.toString());
@@ -36,7 +36,7 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawCanvasWithNegativeWidthAndHeight() {
-        ShapeArgument p = ShapeArgument.builder().coordinateX(-1).coordinateY(-1).build();
+        ShapeArgument p = ShapeArgument.builder().width(-1).height(-1).build();
         Assertions.assertThrows(IllegalArgumentException.class, () -> canvas.draw(p));
     }
 
@@ -49,7 +49,7 @@ class DrawingAppApplicationTests {
                 |                    |
                 |                    |
                 ----------------------""";
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -62,7 +62,7 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawHorizontalLineOutOfCanvasException() {
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -88,7 +88,7 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawLineNotSupportedException() {
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -122,7 +122,7 @@ class DrawingAppApplicationTests {
                 |     X              |
                 |     X              |
                 ----------------------""";
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -140,7 +140,7 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawVerticalLineOutOfCanvasException() {
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -173,7 +173,7 @@ class DrawingAppApplicationTests {
                 |     X         XXXXX|
                 |     X              |
                 ----------------------""";
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);
@@ -198,7 +198,7 @@ class DrawingAppApplicationTests {
 
     @Test
     void testDrawRectangleOutOfCanvasException() {
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Rectangle rectangle = new Rectangle();
         rectangle.setCanvas(canvas);
@@ -231,7 +231,7 @@ class DrawingAppApplicationTests {
                 |    X          XXXXX|
                 |    X               |
                 ----------------------""";
-        ShapeArgument p = ShapeArgument.builder().coordinateX(20).coordinateY(4).build();
+        ShapeArgument p = ShapeArgument.builder().width(20).height(4).build();
         canvas.draw(p);
         Line line = new Line();
         line.setCanvas(canvas);

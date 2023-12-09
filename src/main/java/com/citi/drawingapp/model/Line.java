@@ -17,17 +17,19 @@ public class Line implements ShapeInterface {
     /**
      * Draw the Line in canvas to console
      *
-     * @param p1 ShapeArgument object contains Integer value for line starting point
-     * @param p2 ShapeArgument object contains Integer value for line ending point
+     * @param plist ShapeArgument object list contains Integer value for line starting and ending points.
      * @return No return value.
      * @throws Any exception
      */
     @Override
-    public void draw(ShapeArgument p1, ShapeArgument p2) {
-        int x1 = p1.getCoordinateX();
-        int y1 = p1.getCoordinateY();
-        int x2 = p2.getCoordinateX();
-        int y2 = p2.getCoordinateY();
+    public void draw(ShapeArgument... plist) {
+        if (plist == null || plist.length != 2) {
+            throw new IllegalArgumentException("Argument size is incorrect");
+        }
+        int x1 = plist[0].getCoordinateX();
+        int y1 = plist[0].getCoordinateY();
+        int x2 = plist[1].getCoordinateX();
+        int y2 = plist[1].getCoordinateY();
         if (this.canvas == null || this.canvas.getData() == null) {
             throw new NoCanvasException("Canvas is not found, please draw Canvas firstly");
         }

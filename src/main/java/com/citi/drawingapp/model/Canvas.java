@@ -1,12 +1,12 @@
 package com.citi.drawingapp.model;
 
-import com.citi.drawingapp.api.CanvasInterface;
+import com.citi.drawingapp.api.ShapeInterface;
 import com.citi.drawingapp.utils.OutputWriter;
 import lombok.Data;
 
 
 @Data
-public class Canvas implements CanvasInterface {
+public class Canvas implements ShapeInterface {
 
     private int width;
     private int height;
@@ -23,14 +23,18 @@ public class Canvas implements CanvasInterface {
     /**
      * Draw the canvas to console
      *
-     * @param p ShapeArgument object which contains Integer value for canvas width and Integer value for canvas height
+     * @param plist ShapeArgument object list which contains Integer value
+     *              for canvas width and Integer value for canvas height.
      * @return No return value.
      * @throws Any exception
      */
     @Override
-    public void draw(ShapeArgument p) {
-        int width = p.getCoordinateX();
-        int height = p.getCoordinateY();
+    public void draw(ShapeArgument... plist) {
+        if (plist == null || plist.length != 1) {
+            throw new IllegalArgumentException("Argument size is incorrect");
+        }
+        int width = plist[0].getWidth();
+        int height = plist[0].getHeight();
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Width and Height should be greater than zero");
         }
