@@ -2,7 +2,6 @@ package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
 import com.citi.drawingapp.exception.NotSupportedException;
-import com.citi.drawingapp.utils.OutputWriter;
 import com.citi.drawingapp.validation.CheckArgumentSize;
 import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
@@ -10,11 +9,9 @@ import lombok.Data;
 import static com.citi.drawingapp.enums.ShapeType.L;
 
 @Data
-public class Line implements ShapeInterface {
+public class Line extends Shape implements ShapeInterface {
 
     private Canvas canvas;
-
-    private final static char SHAPE_SEP = 'X';
 
     public Line(Canvas canvas) {
         this.canvas = canvas;
@@ -50,6 +47,6 @@ public class Line implements ShapeInterface {
         } else {
             throw new NotSupportedException("This type of line drawing is not supported");
         }
-        OutputWriter.printToConsole(data);
+        super.outputToConsole(data);
     }
 }

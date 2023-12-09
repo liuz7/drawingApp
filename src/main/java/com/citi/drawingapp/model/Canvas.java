@@ -10,16 +10,11 @@ import static com.citi.drawingapp.enums.ShapeType.C;
 
 
 @Data
-public class Canvas implements ShapeInterface {
+public class Canvas extends Shape implements ShapeInterface {
 
     private int width;
     private int height;
-
     private char[][] data;
-
-    private final static char WIDTH_SEP = '-';
-    private final static char HEIGHT_SEP = '|';
-
 
     public Canvas() {
     }
@@ -35,10 +30,8 @@ public class Canvas implements ShapeInterface {
     @Override
     public void draw(ShapeArgument... plist) {
         new CheckArgumentSize().linkWith(new CheckCanvas()).validate(C, null, plist);
-        int width = plist[0].getWidth();
-        int height = plist[0].getHeight();
-        this.width = width + 2;
-        this.height = height + 2;
+        this.width = plist[0].getWidth() + 2;
+        this.height = plist[0].getHeight() + 2;
         this.data = new char[this.height][this.width];
         //draw the top and bottom line
         for (int i = 0; i < this.width; i++) {
@@ -50,7 +43,7 @@ public class Canvas implements ShapeInterface {
             data[j][0] = HEIGHT_SEP;
             data[j][this.width - 1] = HEIGHT_SEP;
         }
-        OutputWriter.printToConsole(this.data);
+        super.outputToConsole(this.data);
     }
 
     @Override
