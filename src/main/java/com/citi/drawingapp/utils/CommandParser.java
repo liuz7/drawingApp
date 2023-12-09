@@ -7,6 +7,7 @@ import com.citi.drawingapp.model.Rectangle;
 import com.citi.drawingapp.model.ShapeArgument;
 
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.citi.drawingapp.enums.ShapeType.*;
@@ -31,26 +32,14 @@ public class CommandParser {
                     canvas.draw(p);
                 } else if (arguments[0].equals(L.name()) && arguments.length == 5) {
                     Line line = new Line(canvas);
-                    ShapeArgument p1 = ShapeArgument.builder()
-                            .coordinateX(Integer.valueOf(arguments[1]))
-                            .coordinateY(Integer.valueOf(arguments[2]))
-                            .build();
-                    ShapeArgument p2 = ShapeArgument.builder()
-                            .coordinateX(Integer.valueOf(arguments[3]))
-                            .coordinateY(Integer.valueOf(arguments[4]))
-                            .build();
-                    line.draw(p1, p2);
+                    ShapeArgument[] result = coordinateArgumentHelper(arguments[1], arguments[2],
+                            arguments[3], arguments[4]);
+                    line.draw(result);
                 } else if (arguments[0].equals(R.name()) && arguments.length == 5) {
                     Rectangle rectangle = new Rectangle(canvas);
-                    ShapeArgument p1 = ShapeArgument.builder()
-                            .coordinateX(Integer.valueOf(arguments[1]))
-                            .coordinateY(Integer.valueOf(arguments[2]))
-                            .build();
-                    ShapeArgument p2 = ShapeArgument.builder()
-                            .coordinateX(Integer.valueOf(arguments[3]))
-                            .coordinateY(Integer.valueOf(arguments[4]))
-                            .build();
-                    rectangle.draw(p1, p2);
+                    ShapeArgument[] result = coordinateArgumentHelper(arguments[1], arguments[2],
+                            arguments[3], arguments[4]);
+                    rectangle.draw(result);
                 } else if (arguments[0].equalsIgnoreCase("Q")) {
                     scanner.close();
                     System.out.println("App quited");
@@ -63,5 +52,21 @@ public class CommandParser {
                 System.out.println(errorMessage);
             }
         }
+    }
+
+    public static ShapeArgument[] coordinateArgumentHelper(String... arguments) {
+        int[] intArray = Arrays.stream(arguments).mapToInt(Integer::parseInt).toArray();
+        return coordinateArgumentHelper(intArray);
+    }
+
+    public static ShapeArgument[] coordinateArgumentHelper(int... arguments) {
+        ShapeArgument[] result = new ShapeArgument[arguments.length / 2];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = ShapeArgument.builder()
+                    .coordinateX(arguments[i * 2])
+                    .coordinateY(arguments[i * 2 + 1])
+                    .build();
+        }
+        return result;
     }
 }
