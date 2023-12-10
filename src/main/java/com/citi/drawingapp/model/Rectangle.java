@@ -53,4 +53,9 @@ public class Rectangle extends Shape implements ShapeInterface {
         plist[0].setCoordinateX(x1);
         super.outputToConsole(this.canvas.getData());
     }
+
+    @Override
+    public String toString() {
+        return super.outputToString(this.canvas.getData());
+    }
 }

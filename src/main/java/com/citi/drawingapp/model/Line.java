@@ -33,4 +33,9 @@ public class Line extends Shape implements ShapeInterface {
         super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
         super.outputToConsole(this.canvas.getData());
     }
+
+    @Override
+    public String toString() {
+        return super.outputToString(this.canvas.getData());
+    }
 }

@@ -56,8 +56,8 @@ class DrawingAppApplicationTests {
         canvas.draw(p);
         Line line = new Line(canvas);
         line.draw(coordinateArgumentHelper(1, 2, 6, 2));
-        Assertions.assertNotNull(canvas);
-        Assertions.assertEquals(expected, canvas.toString());
+        Assertions.assertNotNull(line);
+        Assertions.assertEquals(expected, line.toString());
     }
 
     @Test
@@ -105,8 +105,8 @@ class DrawingAppApplicationTests {
         Line line = new Line(canvas);
         line.draw(coordinateArgumentHelper(1, 2, 6, 2));
         line.draw(coordinateArgumentHelper(6, 3, 6, 4));
-        Assertions.assertNotNull(canvas);
-        Assertions.assertEquals(expected, canvas.toString());
+        Assertions.assertNotNull(line);
+        Assertions.assertEquals(expected, line.toString());
     }
 
     @Test
@@ -136,8 +136,8 @@ class DrawingAppApplicationTests {
         line.draw(coordinateArgumentHelper(6, 3, 6, 4));
         Rectangle rectangle = new Rectangle(canvas);
         rectangle.draw(coordinateArgumentHelper(16, 1, 20, 3));
-        Assertions.assertNotNull(canvas);
-        Assertions.assertEquals(expected, canvas.toString());
+        Assertions.assertNotNull(rectangle);
+        Assertions.assertEquals(expected, rectangle.toString());
     }
 
     @Test
@@ -167,8 +167,8 @@ class DrawingAppApplicationTests {
         line.draw(coordinateArgumentHelper(5, 1, 5, 4));
         Rectangle rectangle = new Rectangle(canvas);
         rectangle.draw(coordinateArgumentHelper(16, 1, 20, 3));
-        Assertions.assertNotNull(canvas);
-        Assertions.assertEquals(expected, canvas.toString());
+        Assertions.assertNotNull(rectangle);
+        Assertions.assertEquals(expected, rectangle.toString());
     }
 
 }

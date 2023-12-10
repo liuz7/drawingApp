@@ -58,7 +58,7 @@ public class Canvas extends Shape implements ShapeInterface {
 
     @Override
     public String toString() {
-        return OutputWriter.printToString(this.data);
+        return super.outputToString(this.data);
     }
 
 }

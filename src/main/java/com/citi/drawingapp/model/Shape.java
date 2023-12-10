@@ -13,6 +13,10 @@ abstract class Shape {
         OutputWriter.printToConsole(data);
     }
 
+    protected String outputToString(char[][] data) {
+        return OutputWriter.printToString(data);
+    }
+
     protected void drawLine(Canvas canvas, char horizontalSep, char verticalSep, ShapeArgument... plist) {
         int x1 = plist[0].getCoordinateX();
         int y1 = plist[0].getCoordinateY();
