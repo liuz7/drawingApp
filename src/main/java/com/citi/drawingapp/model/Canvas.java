@@ -12,8 +12,6 @@ import static com.citi.drawingapp.enums.ShapeType.C;
 @Data
 public class Canvas extends Shape implements ShapeInterface {
 
-    private int width;
-    private int height;
     private char[][] data;
 
     public Canvas() {
