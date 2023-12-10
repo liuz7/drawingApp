@@ -29,22 +29,28 @@ public class Rectangle extends Shape implements ShapeInterface {
      */
     @Override
     public void draw(ShapeArgument... plist) {
-        new CheckArgumentSize().linkWith(new CheckCanvas()).validate(R, this.canvas, plist);
+        //validation chain
+        new CheckArgumentSize().linkWith(new CheckCanvas()).validate(R, canvas, plist);
         int x1 = plist[0].getCoordinateX();
         int y1 = plist[0].getCoordinateY();
         int x2 = plist[1].getCoordinateX();
         int y2 = plist[1].getCoordinateY();
-        char[][] data = this.canvas.getData();
-        //draw the top and bottom line
-        for (int i = x1; i <= x2; i++) {
-            data[y1][i] = SHAPE_SEP;
-            data[y2][i] = SHAPE_SEP;
-        }
-        //draw the left and right line
-        for (int j = y1; j <= y2; j++) {
-            data[j][x1] = SHAPE_SEP;
-            data[j][x2] = SHAPE_SEP;
-        }
-        super.outputToConsole(data);
+        //draw the top line
+        plist[1].setCoordinateY(y1);
+        super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
+        plist[1].setCoordinateY(y2);
+        //draw the bottom line
+        plist[0].setCoordinateY(y2);
+        super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
+        plist[0].setCoordinateY(y1);
+        //draw the left line
+        plist[1].setCoordinateX(x1);
+        super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
+        plist[1].setCoordinateX(x2);
+        //draw the right line
+        plist[0].setCoordinateX(x2);
+        super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
+        plist[0].setCoordinateX(x1);
+        super.outputToConsole(this.canvas.getData());
     }
 }

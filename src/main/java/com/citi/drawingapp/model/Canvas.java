@@ -29,20 +29,32 @@ public class Canvas extends Shape implements ShapeInterface {
      */
     @Override
     public void draw(ShapeArgument... plist) {
+        //validation chain
         new CheckArgumentSize().linkWith(new CheckCanvas()).validate(C, null, plist);
-        this.width = plist[0].getWidth() + 2;
-        this.height = plist[0].getHeight() + 2;
-        this.data = new char[this.height][this.width];
-        //draw the top and bottom line
-        for (int i = 0; i < this.width; i++) {
-            data[0][i] = WIDTH_SEP;
-            data[this.height - 1][i] = WIDTH_SEP;
-        }
-        //draw the left and right line
-        for (int j = 1; j < this.height - 1; j++) {
-            data[j][0] = HEIGHT_SEP;
-            data[j][this.width - 1] = HEIGHT_SEP;
-        }
+        int x1 = 0;
+        int y1 = 0;
+        int x2 = plist[0].getWidth() + 1;
+        int y2 = plist[0].getHeight() + 1;
+        this.data = new char[plist[0].getHeight() + 2][plist[0].getWidth() + 2];
+        ShapeArgument p1 = ShapeArgument.builder().coordinateX(x1).coordinateY(y1).build();
+        ShapeArgument p2 = ShapeArgument.builder().coordinateX(x2).coordinateY(y2).build();
+        plist = new ShapeArgument[]{p1, p2};
+        //draw the left line
+        plist[1].setCoordinateX(x1);
+        super.drawLine(this, WIDTH_SEP, HEIGHT_SEP, plist);
+        plist[1].setCoordinateX(x2);
+        //draw the right line
+        plist[0].setCoordinateX(x2);
+        super.drawLine(this, WIDTH_SEP, HEIGHT_SEP, plist);
+        plist[0].setCoordinateX(x1);
+        //draw the top line
+        plist[1].setCoordinateY(y1);
+        super.drawLine(this, WIDTH_SEP, HEIGHT_SEP, plist);
+        plist[1].setCoordinateY(y2);
+        //draw the bottom line
+        plist[0].setCoordinateY(y2);
+        super.drawLine(this, WIDTH_SEP, HEIGHT_SEP, plist);
+        plist[0].setCoordinateY(y1);
         super.outputToConsole(this.data);
     }
 

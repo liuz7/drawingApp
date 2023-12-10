@@ -1,7 +1,6 @@
 package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
-import com.citi.drawingapp.exception.NotSupportedException;
 import com.citi.drawingapp.validation.CheckArgumentSize;
 import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
@@ -30,23 +29,8 @@ public class Line extends Shape implements ShapeInterface {
     @Override
     public void draw(ShapeArgument... plist) {
         //validation chain
-        new CheckArgumentSize().linkWith(new CheckCanvas()).validate(L, this.canvas, plist);
-        int x1 = plist[0].getCoordinateX();
-        int y1 = plist[0].getCoordinateY();
-        int x2 = plist[1].getCoordinateX();
-        int y2 = plist[1].getCoordinateY();
-        char[][] data = this.canvas.getData();
-        if (y1 == y2) { //draw the horizontal line
-            for (int i = x1; i <= x2; i++) {
-                data[y1][i] = SHAPE_SEP;
-            }
-        } else if (x1 == x2) { //draw the vertical line
-            for (int j = y1; j <= y2; j++) {
-                data[j][x1] = SHAPE_SEP;
-            }
-        } else {
-            throw new NotSupportedException("This type of line drawing is not supported");
-        }
-        super.outputToConsole(data);
+        new CheckArgumentSize().linkWith(new CheckCanvas()).validate(L, canvas, plist);
+        super.drawLine(this.canvas, SHAPE_SEP, SHAPE_SEP, plist);
+        super.outputToConsole(this.canvas.getData());
     }
 }
