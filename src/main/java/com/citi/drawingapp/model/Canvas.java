@@ -1,7 +1,6 @@
 package com.citi.drawingapp.model;
 
 import com.citi.drawingapp.api.ShapeInterface;
-import com.citi.drawingapp.utils.OutputWriter;
 import com.citi.drawingapp.validation.CheckArgumentSize;
 import com.citi.drawingapp.validation.CheckCanvas;
 import lombok.Data;
