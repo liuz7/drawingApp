@@ -16,9 +16,11 @@ the maven settings file and repo urls. JAVA SDK version should be above version 
 
 ### Design
 * Design the domain class like **Canvas, Line, Rectangle** to represent the draw components.
-* Two drawing interfaces **CanvasInterface,ShapeInterface** are defined for drawing API.
+* Design the reusable **drawLine(Canvas canvas, char horizontalSep, char verticalSep, ShapeArgument... plist)** in **Shape** abstract class, all drawing components will reuse this API to draw shapes.
+* One unified drawing interfaces **void draw(ShapeArgument... plist)** in **ShapeInterface** are defined for drawing API for clients.
 * The **OutputWriter** is responsible for outputing the data to console and string.
 * Internally use **char[][]** as actual data.
+* Design **ValidationStep** as validation chain to validate important cases in chain. 
 * Three exception type **NoCanvasException,NotSupportedException,OutOfCanvasException** are defined to handle the user exceptions.
 * Units test cases are based on **Junit5** framework, including positive and negative test cases.
 
