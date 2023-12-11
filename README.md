@@ -5,6 +5,7 @@ Since this is Maven base application, before run this application, please correc
 the maven settings file and repo urls. JAVA SDK version should be above version 15.
 * Use IDE to import the project, and then run the main class.
 * How to package as java jar to run.
+  - Run `java -jar release/drawingApp-0.0.1-SNAPSHOT.jar` to run the pre-packaged jar. Or can build it as below:
   - Run `mvn package` to build the jar in CLI(Need to comment out some maven plugins in pom.xml).
   - Run `java -jar target/drawingApp-0.0.1-SNAPSHOT.jar` to run this app, or import into IDE to run it if there is any issue with jar.
   - Run `mvn test` to get the jacoco code coverage. The report is `target/site/jacoco/index.html`.
